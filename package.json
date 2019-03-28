@@ -1,5 +1,5 @@
 {
-	"name": "fcc-api-projects-boilerplate",
+	"name": "timestampProject",
 	"version": "0.0.1",
 	"description": "An FCC Backend Challenge",
 	"main": "server.js",
