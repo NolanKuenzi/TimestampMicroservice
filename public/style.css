@@ -13,10 +13,18 @@ body {
 	margin-top: 40px;
 }
 
+ol {
+  position: relative;
+  text-align: justify;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 45em;
+}
+
 ol li {
 	list-style-position: inside;
 }
-
+ 
 ul {
 	list-style-type: none;
 }
