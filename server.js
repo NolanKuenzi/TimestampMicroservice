@@ -14,17 +14,17 @@ app.get("/", function (req, res) {
 
 app.get("/api/timestamp/:date_string?", function (req, res) {
   if (req.params.date_string === undefined) {
-    res.json({"unix": new Date().getTime(), "utc": new Date().toUTCString()});
+    res.status(200).json({"unix": new Date().getTime(), "utc": new Date().toUTCString()});
     return;
   }
   if (req.params.date_string.match(/-/g) === null) {
     req.params.date_string = moment.unix(req.params.date_string / 1000).utc();
   }
   if (moment(req.params.date_string).isValid() === false) {
-    res.json({"error" : "Invalid Date"});
+    res.status(406).json({"error" : "Invalid Date"});
     return;
   }
-  res.json({"unix": new Date(req.params.date_string).getTime(), "utc": new Date(req.params.date_string).toUTCString()});
+  res.status(200).json({"unix": new Date(req.params.date_string).getTime(), "utc": new Date(req.params.date_string).toUTCString()});
 });
 
 const port = process.env.PORT || 3000;
