@@ -21,7 +21,7 @@ app.get("/api/timestamp/:date_string?", function (req, res) {
     req.params.date_string = moment.unix(req.params.date_string / 1000).utc();
   }
   if (moment(req.params.date_string).isValid() === false) {
-    res.status(406).json({"error" : "Invalid Date"});
+    res.status(400).json({"error" : "Invalid Date"});
     return;
   }
   res.status(200).json({"unix": new Date(req.params.date_string).getTime(), "utc": new Date(req.params.date_string).toUTCString()});
